@@ -116,8 +116,11 @@ int main(void)
 
     calc1 = sum(count, count);
     calc2 = multiply(count, count);
-    int len = snprintf((char *)msg, 20, "  %d %d\r\n", calc1, calc2);
+    int calc3 = power(count, 2);
+    int len = snprintf((char *)msg, 20, "  %d %d %d\r\n", calc1, calc2, calc3);
     HAL_UART_Transmit(&huart1, msg, len, 100);
+
+
 
     HAL_Delay(500);
 
