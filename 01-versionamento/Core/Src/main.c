@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "utils/calculator.h"
 
 /* USER CODE END Includes */
 
@@ -108,6 +109,15 @@ int main(void)
 
     snprintf((char *)msg, 20, "Hello world %u\r\n", count++);
     HAL_UART_Transmit(&huart1, msg, sizeof(msg), 100);
+
+    HAL_Delay(500);
+
+    int calc1, calc2;
+
+    calc1 = sum(count, count);
+    calc2 = multiply(count, count);
+    int len = snprintf((char *)msg, 20, "  %d %d\r\n", calc1, calc2);
+    HAL_UART_Transmit(&huart1, msg, len, 100);
 
     HAL_Delay(500);
 
